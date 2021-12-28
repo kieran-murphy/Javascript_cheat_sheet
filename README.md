@@ -57,15 +57,26 @@ console.log(smoothies) //['pineapple smoothie', 'apple smoothie', 'banana smooth
 ## Promises
 
 #### Promises have 3 states: *pending, fulfilled, rejected*
+#### A promise takes in 1 parameter called the executor function, which has 2 parameters in its constructor `resolve` and `reject`
+```javascript
+const executorFunction = (resolve, reject) => {
+  if (someCondition) {
+      resolve('Resolved :)');
+  } else {
+      reject('Rejected :('); 
+  }
+}
+const myFirstPromise = new Promise(executorFunction);
+```
 
 #### A basic example of how a promise can be created and handled:
 ```javascript
 let prom = new Promise((resolve, reject) => {
   let num = Math.random();
   if (num < .5 ){
-    resolve('Yay!');
+    resolve('Bigger');
   } else {
-    reject('Ohhh noooo!');
+    reject('Smaller');
   }
 });
  
@@ -94,6 +105,11 @@ function gotErr(data) {
 }
 
 fetch(url).then(gotData).catch(gotErr);
+```
+
+#### `.then()` can handle both success and failure when there is only 1 `.then()`
+```javascript
+fetch(url).then(gotData,gotErr);
 ```
 
 
@@ -145,8 +161,11 @@ Promise.all(promises)
 	.catch((err) => {
 		console.log(err)
 	});
+```
 
-
+#### The array of promises can also be directly provided when calling `Promise.all()`:
+```javascript
+Promise.all([promise1, promise2, promise3])
 ```
 
 
