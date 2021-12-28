@@ -2,7 +2,39 @@
 #### This cheat sheet is a constant work in progress and covers some beginner/intermediate javascript topics as I learn them
 #### There may be some gaps in the content here as I am adding topics everytime I find difficulty with them and have then learnt them
 
-## For Loop
+## Loops
+
+### For Loop
+```javascript
+
+```
+
+### For...in Loop
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in 
+```javascript
+
+```
+
+
+
+## Functions
+
+### Normal Function
+```javascript
+
+```
+
+### Arrow Function
+```javascript
+
+```
+
+### Anonymous Function
+```javascript
+
+```
+
+### Const Function
 ```javascript
 
 ```
