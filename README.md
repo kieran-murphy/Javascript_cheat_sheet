@@ -55,11 +55,35 @@ console.log(smoothies) //['pineapple smoothie', 'apple smoothie', 'banana smooth
 
 
 ## Promises
+
 #### Promises have 3 states: *pending, fulfilled, rejected*
+
+#### A basic example of how a promise can be created and handled:
+```javascript
+let prom = new Promise((resolve, reject) => {
+  let num = Math.random();
+  if (num < .5 ){
+    resolve('Yay!');
+  } else {
+    reject('Ohhh noooo!');
+  }
+});
+ 
+const handleSuccess = (resolvedValue) => {
+  console.log(resolvedValue);
+};
+ 
+const handleFailure = (rejectionReason) => {
+  console.log(rejectionReason);
+};
+ 
+prom.then(handleSuccess, handleFailure);
+```
+
 #### `.then()` to handle a fulfilled promise
 #### `.catch()` to handle a rejected promise
 
-#### A basic example of how a promise can be written:
+#### A basic example of how a promise can be handled using `.then()` and `.catch()`:
 ```javascript
 function gotData(data) {
     console.log(data)
