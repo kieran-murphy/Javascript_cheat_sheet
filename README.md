@@ -6,38 +6,67 @@
 
 ### For Loop
 ```javascript
-
+//prints numbers 0 to 9
+for (let i = 0; i < 10; i += 1) {
+  console.log(i);
+};
 ```
 
 ### For...in Loop
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in 
 ```javascript
+const object = { a: 1, b: 2, c: 3 };
 
+for (const property in object) {
+  console.log(`${property}: ${object[property]}`);
+}
+
+// prints:
+// "a: 1"
+// "b: 2"
+// "c: 3"
 ```
 
 
 
 ## Functions
 
-### Normal Function
+### Named Function
 ```javascript
-
-```
-
-### Arrow Function
-```javascript
-
+function addNumbers(num1, num2) {
+  return num1 + num2
+}
 ```
 
 ### Anonymous Function
 ```javascript
-
+const addNumbers = function(num1, num2) {
+	return num1 + num2
+}
 ```
 
-### Const Function
+### Arrow Function
 ```javascript
+const addNumbers = (num1, num2) => {
+	return num1 + num2
+}
 
+//One parameter
+const oneParameter = num1 => {
+	console.log(num1)
+}
+
+//No parameters
+const noParameter = () => {
+	console.log('Hello world')
+}
 ```
+
+### Concise Arrow Function
+```javascript
+const addNumbers1 = (num1, num2) = num1 + num2
+```
+
+
 
 ## Array Methods
 
@@ -195,7 +224,7 @@ async function urlReader(url) {
 }
 ```
 
-#### An async function will always return a `promise` which means when it can be called with `.then()` and `.catch()`:
+#### An `async` function will always return a `promise` which means when it can be called with `.then()` and `.catch()`:
 ```javascript
 urlReader(url)
 	.then((result) => {
