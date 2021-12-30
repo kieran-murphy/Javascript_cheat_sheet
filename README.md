@@ -173,6 +173,50 @@ Promise.all([promise1, promise2, promise3])
 ### Promise.first()
 #### This will return the value of the first promise to come back as fulfilled
 ```javascript
+let promises = [promise1, promise2, promise3]
 
+Promise.first(promises)
+	.then((result) => {
+		console.log(result)
+	})
+	.catch((err) => {
+		console.log(err)
+	});
 ```
+
+## Async/Await
+
+#### Async/Await was added in ES8, and adds syntactic sugar to the existing ES6 promises, however doesn't add any new functionality
+#### `async` is called before a function is defined and `await` is called within the function for a value that will take time to resolve
+```javascript
+async function urlReader(url) {
+	let result = await fetch(url)
+	return result
+}
+```
+
+#### An async function will always return a `promise` which means when it can be called with `.then()` and `.catch()`:
+```javascript
+urlReader(url)
+	.then((result) => {
+		console.log(result)
+	})
+	.catch((err) => {
+		console.log(err)
+	});
+```
+
+#### An `async` function is most useful when calling multiple services that take time to resolve but don't need require each other to be called in any order
+#### Basically, all the `await`s within an `async` function will run next to each other and save time (asynchronously) instead of one after another (synchronously)
+#### If one line is slower than the rest, the program won't be slowed down because the rest of the code will execute at the same time:
+
+```javascript
+async function urlsReader(urls) {
+	let resultOne = await fetch(urls[0]) //slow
+	let resultTwo = await fetch(urls[1]) //fast
+	let resultThree = await fetch(urls[2]) //fast
+	let resultFour = await fetch(url[3]) //fast
+}
+```
+
 
