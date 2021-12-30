@@ -63,7 +63,7 @@ const noParameter = () => {
 
 ### Concise Arrow Function
 ```javascript
-const addNumbers1 = (num1, num2) = num1 + num2
+const addNumbers1 = (num1, num2) => num1 + num2
 ```
 
 
