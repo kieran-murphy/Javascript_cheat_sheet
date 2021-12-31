@@ -248,4 +248,8 @@ async function urlsReader(urls) {
 }
 ```
 
+## AJAX - Asynchronous JavaScript And XML
 
+#### AJAX is a set of tools that are used together to take advantage of JavaScript’s asynchronous capabilities
+#### In a nutshell, it is the use of the XMLHttpRequest object to communicate with servers. 
+#### It can send and receive information in various formats, including JSON, XML, HTML, and text files
