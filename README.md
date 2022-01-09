@@ -90,14 +90,28 @@ console.log(smoothies) //['pineapple smoothie', 'apple smoothie', 'banana smooth
 
 ## Value vs Reference
 
-#### In Javascript, there are two types of data, primitive and non-primitive.
+#### In Javascript, there are two types of data, primitive and non-primitive
 #### Primitive data types: Number, String, Boolean, Undefined, Null and Symbol
-#### Non-Primitive data types: The ‘object’ is a non-primitive data type in JavaScript. Arrays and Functions in JavaScript belong to the ‘object’ data type.
+#### Non-Primitive data types: Object. Arrays, Functions and mostly everything else in JavaScript belong to the ‘Object’ data type
+#### 
+#### When interacting with a variable, if it is a primitive data type then the value will be passed:
 ```javascript
-
+let a = 1 //1
+let b = a //1
+b = b + 1 //2
+console.log(a) //1
+console.log(b) //2
+```
+#### A non-primitive type will pass a reference in memory to the value i.e 0x01, 0x02 etc:
+```javascript
+let c = [1,2,3] //0x01
+let d = c //0x01
+d.push(4) //0x01
+console.log(c) //[1,2,3,4]
+console.log(d) //[1,2,3,4]
 ```
 
-##Truthy vs Falsy
+## Truthy vs Falsy
 ```javascript
 ```
 
