@@ -81,9 +81,40 @@ const smoothies = fruits.map(fruit => {
 console.log(smoothies) //['pineapple smoothie', 'apple smoothie', 'banana smoothie']
 ```
 
+## Array Destructuring
+
+#### Array destructuring can be used to retrieve information from arrays in a convenient way: 
+```javascript
+const oldArray = ['A','B','C','D','E']
+
+const [a,b] = oldArray //This line demonstrates array destructuring
+
+console.log(a) //A
+console.log(b) //B
+```
+
+#### It is also possible to skip values with empty fields between commas: 
+```javascript
+const oldArray = ['A','B','C','D','E']
+
+const [a,,c] = oldArray
+
+console.log(a) //A
+console.log(c) //C
+```
+
+#### The spread syntax is also useful in array/object destructuring to get an array of the remaining values: 
+```javascript
+const oldArray = ['A','B','C','D','E']
+
+const [a,b, ...rest] = oldArray //This line demonstrates spread syntax
+
+console.log(rest) //['C', 'D', 'E']
+```
+
 ## Object Destructuring
 
-#### ...
+#### ....
 ```javascript
 
 ```
@@ -107,13 +138,39 @@ console.log(b) //2
 ```javascript
 let c = [1,2,3] //0x01
 let d = c //0x01
-d.push(4) //0x01
+d.push(4) 
 console.log(c) //[1,2,3,4]
 console.log(d) //[1,2,3,4]
 ```
 
-## Truthy vs Falsy
+#### Creating two variables with the same array seperately will mean that they are referencing two sepearate references in memory and won't affect each other:
 ```javascript
+let c = [1,2,3] //0x01
+let d = [1,2,3] //0x02
+d.push(4) 
+console.log(c) //[1,2,3]
+console.log(d) //[1,2,3,4]
+```
+
+## Truthy vs Falsy
+#### In Javascript, values that evaluate to `true` are known as 'truthy' and values that evaluate to `false` are known as 'falsy'
+#### Obviously a variable with the boolean value of `false` is falsy but so are the following variables: 
+```javascript
+//All the following evaluate to false when used in an if statement
+let a = false
+let b = 0
+let c = -0
+let d = ""
+let e = null
+let f = undefined
+let g = NaN
+```
+#### All other values will evaluate to `true` also known as a 'truthy' value
+
+## == vs ===
+####
+```javascript
+
 ```
 
 ## Promises
