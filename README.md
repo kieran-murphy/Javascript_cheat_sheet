@@ -102,7 +102,8 @@ b = b + 1 //2
 console.log(a) //1
 console.log(b) //2
 ```
-#### A non-primitive type will pass a reference in memory to the value i.e 0x01, 0x02 etc:
+#### A non-primitive type will pass a reference in memory to the value i.e 0x01, 0x02 etc
+#### Creating a new variable `d`, that is based on `c` will mean that they both point to `0x01`, therefore any changes made to `d` will also happen to `c`:
 ```javascript
 let c = [1,2,3] //0x01
 let d = c //0x01
