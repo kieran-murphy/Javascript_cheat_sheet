@@ -88,6 +88,18 @@ console.log(smoothies) //['pineapple smoothie', 'apple smoothie', 'banana smooth
 
 ```
 
+## Value vs Reference
+
+#### In Javascript, there are two types of data, primitive and non-primitive.
+#### Primitive data types: Number, String, Boolean, Undefined, Null and Symbol
+#### Non-Primitive data types: The ‘object’ is a non-primitive data type in JavaScript. Arrays and Functions in JavaScript belong to the ‘object’ data type.
+```javascript
+
+```
+
+##Truthy vs Falsy
+```javascript
+```
 
 ## Promises
 
