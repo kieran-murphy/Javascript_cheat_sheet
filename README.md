@@ -96,8 +96,8 @@ console.log(b) //B
 #### It is also possible to skip values with empty fields between commas: 
 ```javascript
 const oldArray = ['A','B','C','D','E']
-
-const [a,,c] = oldArray
+ 
+const [a,,c] = oldArray //This line demonstrates array destructuring
 
 console.log(a) //A
 console.log(c) //C
@@ -112,10 +112,84 @@ const [a,b, ...rest] = oldArray //This line demonstrates spread syntax
 console.log(rest) //['C', 'D', 'E']
 ```
 
+#### It is possible to combine two or more arrays with the spread operator:
+```javascript
+const letters = ['A','B','C','D','E']
+const numbers = [1, 2, 3, 4, 5]
+
+const newArray = [...letters, ...numbers] //This line demonstrates spread syntax
+
+console.log(newArray) //['A','B','C','D','E', 1, 2, 3, 4, 5]
+```
+
 ## Object Destructuring
 
-#### ....
+#### Object destructuring is very similar to array destructuring except names are used to point to values instead of position
 ```javascript
+const person = {
+	first_name: 'Sarah',
+	last_name: 'Person',
+	age: 28,
+	role: 'admin'
+}
+
+const {first_name, age} = person //This line demonstrates object destructuring
+
+console.log(first_name) //'Sarah'
+console.log(age) //28
+
+```
+
+#### It is possible to provide variable names for the destructured properties with a colon and the variable name after
+```javascript
+const person = {
+	first_name: 'Sarah',
+	last_name: 'Person',
+	age: 28,
+	role: 'admin'
+}
+
+const {first_name: name, age: years} = person //This line demonstrates object destructuring with named variables
+
+console.log(name) //'Sarah'
+console.log(years) //28
+
+```
+
+#### It is possible to provide default values for destructuring which will either carry the value from the object if it exists or just create a variable with the provided default value
+
+```javascript
+const person = {
+	first_name: 'Sarah',
+	last_name: 'Person',
+	age: 28,
+	role: 'admin'
+}
+
+const {first_name, age, favFood = 'Sushi'} = person //This line demonstrates object destructuring with default values
+
+console.log(name) //'Sarah'
+console.log(years) //28
+console.log(favFood) // 'Sushi' //This line prints 'Sushi' because there is no favFood property of Person
+
+```
+
+#### When the value is found in the destructured object then it will return that value
+
+```javascript
+const person = {
+	first_name: 'Sarah',
+	last_name: 'Person',
+	age: 28,
+	role: 'admin',
+	favFood: 'Pizza'
+}
+
+const {first_name, age, favFood = 'Sushi'} = person //This line demonstrates object destructuring with named variables
+
+console.log(name) //'Sarah'
+console.log(years) //28
+console.log(favFood) // 'Pizza' // This line prints 'Pizza' because it found that value for the favFood property which exists this time within Person
 
 ```
 
