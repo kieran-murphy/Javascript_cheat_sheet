@@ -124,72 +124,159 @@ console.log(newArray) //['A','B','C','D','E', 1, 2, 3, 4, 5]
 
 ## Object Destructuring
 
-#### Object destructuring is very similar to array destructuring except names are used to point to values instead of position
+#### Object destructuring is very similar to array destructuring except names are used to point to values instead of position:
 ```javascript
 const person = {
-	first_name: 'Sarah',
-	last_name: 'Person',
+	firstName: 'Sarah',
+	lastName: 'Person',
 	age: 28,
 	role: 'admin'
 }
 
-const {first_name, age} = person //This line demonstrates object destructuring
+const {firstName, age} = person //This line demonstrates object destructuring
 
-console.log(first_name) //'Sarah'
+console.log(firstName) //'Sarah'
 console.log(age) //28
 
 ```
 
-#### It is possible to provide variable names for the destructured properties with a colon and the variable name after
+#### It is possible to provide variable names for the destructured properties with a colon and the variable name after:
 ```javascript
 const person = {
-	first_name: 'Sarah',
-	last_name: 'Person',
+	firstName: 'Sarah',
+	lastName: 'Person',
 	age: 28,
 	role: 'admin'
 }
 
-const {first_name: name, age: years} = person //This line demonstrates object destructuring with named variables
+const {firstName: name, age: years} = person //This line demonstrates object destructuring with named variables
 
 console.log(name) //'Sarah'
 console.log(years) //28
 
 ```
 
-#### It is possible to provide default values for destructuring which will either carry the value from the object if it exists or just create a variable with the provided default value
+#### It is possible to provide default values for destructuring which will either carry the value from the object if it exists or just create a variable with the provided default value:
 
 ```javascript
 const person = {
-	first_name: 'Sarah',
-	last_name: 'Person',
+	firstName: 'Sarah',
+	lastName: 'Person',
 	age: 28,
 	role: 'admin'
 }
 
-const {first_name, age, favFood = 'Sushi'} = person //This line demonstrates object destructuring with default values
+const {firstName, age, favFood = 'Sushi'} = person //This line demonstrates object destructuring with default values
 
-console.log(name) //'Sarah'
-console.log(years) //28
+console.log(firstName) //'Sarah'
+console.log(age) //28
 console.log(favFood) // 'Sushi' //This line prints 'Sushi' because there is no favFood property of Person
 
 ```
 
-#### When the value is found in the destructured object then it will return that value
+#### When the value is found in the destructured object then it will return that value:
 
 ```javascript
 const person = {
-	first_name: 'Sarah',
-	last_name: 'Person',
+	firstName: 'Sarah',
+	lastName: 'Person',
 	age: 28,
 	role: 'admin',
 	favFood: 'Pizza'
 }
 
-const {first_name, age, favFood = 'Sushi'} = person //This line demonstrates object destructuring with named variables
+const {firstName, age, favFood = 'Sushi'} = person //This line demonstrates object destructuring with named variables
 
-console.log(name) //'Sarah'
-console.log(years) //28
+console.log(firstName) //'Sarah'
+console.log(age) //28
 console.log(favFood) // 'Pizza' // This line prints 'Pizza' because it found that value for the favFood property which exists this time within Person
+
+```
+#### It is possible to use the spread operator when destructuring objects, it will return an object of all the remaining properties that weren't destructured:
+
+```javascript
+const person = {
+	firstName: 'Sarah',
+	lastName: 'Person',
+	age: 28,
+	role: 'admin',
+	favFood: 'Pizza'
+}
+
+const {firstName, lastName, ...rest} = person //This line demonstrates object destructuring with spread operator
+
+console.log(firstName) //'Sarah'
+console.log(lastName) //'Person'
+console.log(rest) // {age: 28, role: 'admin', favFood: 'Pizza'} 
+
+```
+
+#### It is possible to use object destructuring on nested objects (objects within objects):
+
+```javascript
+const person = {
+	firstName: 'Sarah',
+	lastName: 'Person',
+	age: 28,
+	role: 'admin',
+	favFoods: {
+		breakfast: 'Corn Flakes',
+		lunch: 'Sandwich',
+		dinner: 'Pizza'
+	}
+}
+
+const {firstName, lastName, favFoods: { dinner } } = person //This line demonstrates object destructuring with a nested object
+
+console.log(firstName) //'Sarah'
+console.log(lastName) //'Person'
+console.log(dinner) //'Pizza'
+
+```
+
+#### It is possible to use object destructuring to combine two objects using the spread operator
+#### When doing this, the second object will overwrite properties of the first if there are any conflicts, otherwise new properties will just be added:
+
+```javascript
+const personOne = {
+	firstName: 'Sarah',
+	lastName: 'Person',
+	age: 28,
+	role: 'admin'
+}
+
+const personTwo = {
+	firstName: 'Naomi',
+	eyeColor: 'Hazel' 
+}
+
+const personThree = {...personOne, ...personTwo} //This line demonstrates combining objects with the spread operator
+
+console.log(personThree) // {firstName: 'Naomi', lastName: 'Person', age: 28, role: 'admin', eyeColor: 'Hazel'}
+
+```
+
+#### Object destructuring is very useful for functions and can be directly done in the function's parameters:
+
+```javascript
+const person = {
+	firstName: 'Sarah',
+	age: 28
+}
+
+//This function does not use object destructuring
+function introduceUser(user) {
+	console.log(`My name is ${user.name}, I am ${user.age} years old`)
+}
+
+introduceUser(person) //'My name is Sarah, I am 28 years old'
+
+//This function DOES use object destructuring
+function introduceUserDestructured({name, age}) {
+	console.log(`My name is ${name}, I am ${age} years old`)
+}
+
+introduceUserDestructured(person) //'My name is Sarah, I am 28 years old'
 
 ```
 
