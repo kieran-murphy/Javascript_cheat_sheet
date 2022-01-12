@@ -329,11 +329,19 @@ let g = NaN
 #### All other values will evaluate to `true` also known as a 'truthy' value
 
 ## == vs ===
-#### In Javascript, both the `==` and `===` comparitors can be used to test for equality
+#### In Javascript, both the `==` and `===` comparators can be used to test for equality
 #### The main difference is that `==` tests for the value, while `===` tests for value and type:
 ```javascript
 console.log(1 == '1') // true
 console.log(1 === '1') // false
+```
+
+## != vs !==
+#### Like the `==` and `===` comparators, the `!=` and `!==` comparators can both be used but provide slightly different outcomes
+#### The `!=` comparator does not consider type while the `!==` does:
+```javascript
+console.log(1 != '1') // false
+console.log(1 !== '1') // true
 ```
 
 ## Promises
