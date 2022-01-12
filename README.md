@@ -329,9 +329,11 @@ let g = NaN
 #### All other values will evaluate to `true` also known as a 'truthy' value
 
 ## == vs ===
-####
+#### In Javascript, both the `==` and `===` comparitors can be used to test for equality
+#### The main difference is that `==` tests for the value, while `===` tests for value and type:
 ```javascript
-
+console.log(1 == '1') // true
+console.log(1 === '1') // false
 ```
 
 ## Promises
