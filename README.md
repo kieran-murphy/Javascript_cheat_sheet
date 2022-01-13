@@ -328,6 +328,37 @@ let g = NaN
 ```
 #### All other values will evaluate to `true` also known as a 'truthy' value
 
+## Short Circuiting
+#### Short circuiting is the concept of how javascript evaluates logicical operators left to right
+#### If a logical operator has been met and the rest of the tests will not affect the result, javascript will stop evaluating and it will be short circuited
+#### In the code below, `e` is not evaluated because a 'truthy' value `d` is found and therefore `e` is not reached:
+```javascript
+let a; //falsy
+let b = null; //falsy
+let c = undefined; //falsy
+let d = 6; //truthy
+let e = 'ten'; //truthy
+
+var f = a || b || c || d || e;
+
+console.log(f); // 6
+```
+
+#### This works the same with `&&` as the first falsy value found will stop the line running any further
+#### In the code below, the line defining `f` will only run until it finds `b` which is the first 'falsy' value when evaluated left to right:
+```javascript
+let a = true
+let b = false
+let c = true
+let d = true
+let e = true
+
+var f = (a || b || c || d || e);
+
+console.log(f); //false
+```
+
+
 ## Ternary Operator
 #### The ternary operator in javascript is a way to quickly perform an `if`/`else` statement in one line
 #### The first value before the `?` is tested for a truthy or falsy value
