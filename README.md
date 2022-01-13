@@ -328,6 +328,19 @@ let g = NaN
 ```
 #### All other values will evaluate to `true` also known as a 'truthy' value
 
+## Ternary Operator
+#### The ternary operator in javascript is a way to quickly perform an `if`/`else` statement in one line
+#### The first value before the `?` is tested for a truthy or falsy value
+#### If it is 'truthy' then the first value before the `:` will be returned, otherwise the second value after the `:` will be returned
+```javascript
+let raining = true
+
+let clothes = raining ? "Raincoat" : "Shirt";
+
+console.log(clothes) // "Raincoat"
+```
+
+
 ## == vs ===
 #### In Javascript, both the `==` and `===` comparators can be used to test for equality
 #### The main difference is that `==` tests for the value, while `===` tests for value and type:
