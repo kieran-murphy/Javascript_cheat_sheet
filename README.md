@@ -353,7 +353,7 @@ let c = true
 let d = true
 let e = true
 
-var f = (a || b || c || d || e);
+var f = (a && b && c && d && e);
 
 console.log(f); //false
 ```
