@@ -71,7 +71,7 @@ const addNumbers1 = (num1, num2) => num1 + num2
 ## Array Methods
 
 ### array.map()
-#### Returns a new array with some changes made in the callback function:
+#### Returns a new array with some changes defined in the callback function:
 ```javascript
 const fruits = ['pineapple', 'apple', 'banana']
 const smoothies = fruits.map(fruit => {
@@ -79,6 +79,30 @@ const smoothies = fruits.map(fruit => {
 })
 
 console.log(smoothies) //['pineapple smoothie', 'apple smoothie', 'banana smoothie']
+```
+
+
+## Maps
+#### A map in javascript is a key:value pair where the key can have any data type
+#### Maps are defined by passing an array in when calling new Map():
+```javascript
+let foods = new Map([
+  ["pizza", 23],
+  ["pie", 35],
+  ["spaghetti", 30]
+])
+```
+
+#### New key:value pairs can be added, and existing pairs can be changed using `map.set()`:
+```javascript
+foods.set("gelatto", 21)
+
+foods.set("pie", 15)
+```
+
+#### Values can be extracted from a map using `map.get()`:
+```javascript
+foods.get("pizza") // 23
 ```
 
 ## Array Destructuring
@@ -334,6 +358,38 @@ let d = [1,2,3] //0x02
 d.push(4) 
 console.log(c) //[1,2,3]
 console.log(d) //[1,2,3,4]
+```
+
+## Object.freeze()
+#### Any object is a reference and therefore can be changed even if defined with `const`
+#### The way around this in javascript is to use `Object.freeze()` on it:
+```javascript
+const obj = {
+  prop: 35
+}
+
+Object.freeze(obj)
+
+obj.prop = 50 // This change does not affect the object
+
+console.log(obj.prop) // 35
+```
+
+#### An object can also be frozen on definition:
+```javascript
+const obj = Object.freeze({
+  prop: 35
+})
+```
+
+#### Any javascript object can be frozen including arrays:
+```javascript
+const a = [0]
+Object.freeze(a)
+
+a.push(1) // This change does not affect the object
+
+console.log(a) // [0]
 ```
 
 ## Truthy vs Falsy
