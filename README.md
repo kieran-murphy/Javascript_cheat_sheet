@@ -388,6 +388,42 @@ console.log(1 != '1') // false
 console.log(1 !== '1') // true
 ```
 
+## Callback Functions
+#### A callback is a function passed as an argument to another function
+#### A callback in its most basic form is passed *without* parentheses `()`
+```javascript
+function func() {
+	console.log("Hello World")
+}
+
+setTimeout(func, 3000) // A callback function
+setTimeout(func(), 3000) // A function being called, this would execute instantly and be incorrect
+```
+
+#### A callback function can also be defined in another function
+```javascript
+function func() {
+	console.log("Hello World")
+}
+
+setTimeout(func, 3000)
+// or
+setTimeout(function() { console.log("Hello World") }, 3000) 
+// or 
+setTimeout(() => { console.log("Hello World") }, 3000) 
+```
+
+#### To pass a parameter into a callback function, it needs to be the return value of another function
+#### The easiest way to do this is to add `() =>` before it, so it is the return value of an anonymous arrow function 
+```javascript
+function funcOne(a) {
+	console.log(a) 
+}
+
+setTimeout(() => funcOne("Hi"), 3000)
+```
+
+
 ## Promises
 
 #### Promises have 3 states: *pending, fulfilled, rejected*
