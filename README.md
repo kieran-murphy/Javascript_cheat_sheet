@@ -280,6 +280,29 @@ introduceUserDestructured(person) //'My name is Sarah, I am 28 years old'
 
 ```
 
+## Object Shorthand
+#### Object shorthand declarations are a simple way to make defining an object in javascript more concise
+#### If a variable is already defined in the code it can be created into a key:value pair in an object by just using the variable name as the key
+#### As seen below, the two objects have the same values, however `person` is a lot simpler than `personTwo`:
+```javascript
+let name = 'John'
+let age = 47
+
+let person = {
+	name,
+	age
+}
+
+let personTwo = {
+	name: 'John',
+	age: 47
+}
+```
+
+
+
+
+
 ## Value vs Reference
 
 #### In Javascript, there are two types of data, primitive and non-primitive
@@ -588,6 +611,26 @@ async function urlsReader(urls) {
 	let resultFour = await fetch(url[3]) //fast
 }
 ```
+
+## Hoisting
+#### In javascript, code is executed from top to bottom within a file with two major exceptions: functions and variables defined with the `var` keyword
+#### Hoisting means that these declarations are run before the rest of the code
+#### In other languages, such as python, the following code would not work, however in javascript it does because of hoisting:
+```javascript
+print()
+
+function print(){
+    console.log("This works")
+}
+```
+
+#### The `var` keyword works differently, as a value cannot be given with hoisting, however it can still be useful:
+```javascript
+console.log(num) // Prints 'undefined' from hoisted var declaration (not 5)
+var num = 5 // Initialization and declaration
+console.log(num) // Prints 5 after the line with initialization is executed
+```
+
 
 ## AJAX - Asynchronous JavaScript And XML
 
