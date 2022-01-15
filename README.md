@@ -687,6 +687,21 @@ var num = 5 // Initialization and declaration
 console.log(num) // Prints 5 after the line with initialization is executed
 ```
 
+## Closures
+#### In a very basic nutshell, a closure is the combination of a function and any other functions or variables outside its scope that it references
+#### In the below example, the closure is the combination of the `inner()` function and the variable `b`:
+```javascript
+function outer() {
+   var b = 5;
+   function inner() {
+        
+         var a = 30; 
+         console.log(a*b);
+    }
+   return inner;
+}
+```
+
 
 ## AJAX - Asynchronous JavaScript And XML
 
